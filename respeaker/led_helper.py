@@ -1,7 +1,7 @@
 from time import sleep
 
 from numpy.random import randint
-from apa102 import APA102
+from apa102_pi.driver.apa102 import APA102
 
 
 leds = APA102(num_led=3, global_brightness=5)
@@ -15,13 +15,15 @@ purple = 0xFF00FF
 white = 0xFFFFFF
 
 
-def color(led=None, color=red):
+def color(led=None, color=red, clear=False):
     """Set the color for an LED
 
     Args:
         led (int): optional, led number
         color (int): color value in [0, 2**24)
     """
+    if clear:
+        leds.clear_strip()
     if led is None:
         for i in range(3):
             leds.set_pixel_rgb(i, color)
