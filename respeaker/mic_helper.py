@@ -2,7 +2,7 @@ import struct
 import time
 
 import pyaudio
-from porcupine import Porcupine
+import pvporcupine
 
 
 LIBRARY_PATH = '/home/pi/Porcupine/lib/raspberry-pi/arm11/libpv_porcupine.so'
@@ -32,11 +32,8 @@ def listen(keywords=['blueberry'], sensitivity=0.5, action=None):
 
     try:
         # initialize wake word detection
-        porcupine = Porcupine(
-            library_path=LIBRARY_PATH,
-            model_file_path=MODEL_PATH,
-            keyword_file_paths=[KEYWORD_PATH.format(x) for x in keywords],
-            sensitivities=[float(sensitivity)] * len(keywords))
+        sensitivities = [float(sensitivity)] * len(keywords)
+        porcupine = pvporcupine.create(keywords=keywords, sensitivities=sensitivities)
 
         # create input audio stream
         pa = pyaudio.PyAudio()
