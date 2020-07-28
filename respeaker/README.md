@@ -34,6 +34,10 @@
     - `cd rpy-learn/respeaker`
 6) Run installation script (this takes a while)
     - `sudo ./install.sh`
-7) Start the jupyter server
+    - `sudo reboot now`
+7) Reconnect SSH session from computer (forwarding port 8888)
+    - `ssh -L 8888 pi@<My-Ip-Address>`
+    - `cd rpy-learn/respeaker`
     - `jupyter notebook`
-    - click on the link provided to open
+        - copy link provided to browser on your computer
+
