@@ -33,7 +33,7 @@
     - `git clone https://github.com/rpy-learn`
     - `cd rpy-learn/respeaker`
 6) Run installation script (this takes a while)
-    - `sudo ./install.sh`
+    - `sudo bash install.sh`
     - `sudo reboot now`
 7) Reconnect SSH session from computer (forwarding port 8888)
     - `ssh -L 8888 pi@<My-Ip-Address>`

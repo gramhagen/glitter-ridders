@@ -1,4 +1,4 @@
-RESPEAKER_DIR = `dirname "$0"`
+RESPEAKER_DIR=$PWD
 
 # setup picovoice porcupine: https://pimylifeup.com/raspberry-pi-porcupine/ 
 sudo apt-get install -y python3-pip python3-numpy portaudio19-dev libsndfile1
