@@ -30,12 +30,13 @@
     - `ssh pi@<My-Ip-Address>`
 5) Clone repo
     -  `sudo apt-get update && sudo apt-get install -y git python3-pip`
-    - `git clone https://github.com/rpy-learn`
+    - `git clone https://github.com/gramhagen/rpy-learn.git`
     - `cd rpy-learn/respeaker`
 6) Run installation script (this takes a while)
-    - `sudo install.sh`
+    - `sudo bash install.sh`
+    - `sudo reboot`
 7) Install python requirements (this takes a while)
-    - pip3 install -r requirements.txt
+    - `pip3 install -r requirements.txt`
 8) Start the jupyter server
     - `jupyter notebook`
     - click on the link provided to open
