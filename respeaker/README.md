@@ -4,18 +4,17 @@
 
 |Device|Cost|
 |--|--|
-|[Raspberry Pi Zero WH](https://www.adafruit.com/product/3708)|$14.00|
+|[Raspberry Pi Zero W](https://www.adafruit.com/product/3708)|$14.00|
 |[Micro SD Card 8GB](https://www.newegg.com/sandisk-8gb-microsdhc/p/0DF-0005-00190)|$6.00
 |[ReSpeaker 2-Mic Pi HAT](https://www.digikey.com/product-detail/en/seeed-technology-co.,-ltd/107100001/1597-1513-ND/7325257)|$10.00|
-|[Mini HDMI Adapter](https://www.adafruit.com/product/2819)|$3.00|
-|[MicroB OTG male to USB-A male Adapter](https://www.adafruit.com/product/1099)|$2.50|
 |[MicroB male to USB-A male Cable](https://www.adafruit.com/product/592)|$3.00|
 
 
-
 ## Software
+
 - [Balena Etcher](https://www.balena.io/etcher/)
 - [Rapsberry Pi OS Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os/)
+
 
 ## Setup
 
@@ -25,19 +24,29 @@
     - Set networking settings
     - Change locale / keyboard settings
     - Enable SSH and SPI interfacing
-    - Reboot and note IP address `<My-IP-Address>`
+    - Reboot
 4) From computer on the same network ssh to Raspberry Pi
-    - `ssh pi@<My-Ip-Address>`
+    - `ssh pi@raspberrypi.local`
 5) Clone repo
     - `sudo apt-get update && sudo apt-get install -y git`
     - `git clone https://github.com/gramhagen/rpy-learn.git`
     - `cd rpy-learn/respeaker`
 6) Run installation script (this takes a while)
-    - `sudo bash install.sh`
+    - `sudo ./install.sh`
     - `sudo reboot now`
+
+    To check the audio devices, run:
+    ```
+    # List PLAYBACK Hardware Devices
+    aplay -l
+
+    # List CAPTURE Hardware Devices
+    arecord -l
+    ```
+    If no devices are shown, try to turn on audio devices by adding `dtparam=audio=on` to */boot/config.txt* and reboot.
 7) Reconnect SSH session from computer (forwarding port 8888)
-    - `ssh -L 8888 pi@<My-Ip-Address>`
+    - `ssh pi@raspberrypi.local -L 8888:localhost:8888`
     - `cd rpy-learn/respeaker`
-    - `jupyter notebook`
-        - copy link provided to browser on your computer
+    - `jupyter notebook --no-browser`
+        - Copy link provided (e.g. `http://localhost:8888/?token=...`) to browser on your computer
 
