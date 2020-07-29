@@ -36,7 +36,7 @@
     - `sudo bash install.sh`
     - `sudo reboot now`
 7) Reconnect SSH session from computer (forwarding port 8888)
-    - `ssh -L 8888 pi@<My-Ip-Address>`
+    - `ssh -L 8888:localhost:8888 pi@<My-Ip-Address>`
     - `cd rpy-learn/respeaker`
     - `jupyter notebook`
         - copy link provided to browser on your computer
