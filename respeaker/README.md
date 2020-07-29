@@ -30,7 +30,7 @@
     - `ssh pi@<My-Ip-Address>`
 5) Clone repo
     - `sudo apt-get update && sudo apt-get install -y git`
-    - `git clone https://github.com/rpy-learn`
+    - `git clone https://github.com/gramhagen/rpy-learn.git`
     - `cd rpy-learn/respeaker`
 6) Run installation script (this takes a while)
     - `sudo bash install.sh`
