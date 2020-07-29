@@ -5,11 +5,6 @@ import pyaudio
 import pvporcupine
 
 
-LIBRARY_PATH = '/home/pi/Porcupine/lib/raspberry-pi/arm11/libpv_porcupine.so'
-MODEL_PATH = '/home/pi/Porcupine/lib/common/porcupine_params.pv'
-KEYWORD_PATH = '/home/pi/Porcupine/resources/keyword_files/raspberrypi/{}_raspberrypi.ppn'
-
-
 def listen(keywords=['blueberry'], sensitivity=0.5, action=None):
 
     # define callback for action to take when wake words are detected

@@ -3,7 +3,7 @@ import sys
 import time
 
 import pyaudio
-from porcupine import Porcupine
+import pvporcupine
 
 from led_helper import red, blue, purple, color, clear
 
