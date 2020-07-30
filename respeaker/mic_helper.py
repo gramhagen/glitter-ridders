@@ -5,7 +5,7 @@ import pyaudio
 import pvporcupine
 
 
-def listen(keywords=['blueberry'], sensitivity=0.5, action=None):
+def listen(keywords=["blueberry"], sensitivity=0.5, action=None):
 
     # define callback for action to take when wake words are detected
     def _audio_callback(in_data, frame_count, time_info, status):
@@ -15,7 +15,7 @@ def listen(keywords=['blueberry'], sensitivity=0.5, action=None):
             index = result if len(keywords) > 1 else int(result) - 1
             if index >= 0:
                 if action is None:
-                    print('I heard {}!'.format(keywords[index]))
+                    print("I heard {}!".format(keywords[index]))
                 else:
                     action(result)
 
@@ -39,7 +39,8 @@ def listen(keywords=['blueberry'], sensitivity=0.5, action=None):
             input=True,
             frames_per_buffer=porcupine.frame_length,
             input_device_index=None,
-            stream_callback=_audio_callback)
+            stream_callback=_audio_callback,
+        )
 
         # start monitoring stream
         audio_stream.start_stream()
@@ -49,7 +50,7 @@ def listen(keywords=['blueberry'], sensitivity=0.5, action=None):
             time.sleep(0.1)
 
     except KeyboardInterrupt:
-        print('Stopping ...')
+        print("Stopping ...")
 
     finally:
         if audio_stream is not None:

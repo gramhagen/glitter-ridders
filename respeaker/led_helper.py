@@ -44,7 +44,7 @@ def random(led=None):
         led (int): optional led number
     """
     size = 3 if led is None else 1
-    for i, color in enumerate(randint(0, 2**24, size=size)):
+    for i, color in enumerate(randint(0, 2 ** 24, size=size)):
         leds.set_pixel_rgb(led or i, int(color))
     leds.show()
 

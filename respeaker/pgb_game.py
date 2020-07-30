@@ -8,21 +8,23 @@ import pvporcupine
 from led_helper import red, blue, purple, color, clear
 
 
-def play(keywords=['bumblebee', 'grapefruit', 'porcupine'], sensitivity=0.5):
+def play(keywords=["bumblebee", "grapefruit", "porcupine"], sensitivity=0.5):
 
     clear()
     color(led=0, color=red)
 
     while True:
-        print('Pick a number for your choice: [1] Bumblebee, [2] Grapefruit, [3] Porcupine')
-        red_choice = ['1', '2', '3'].index(input('Red Player - Make your choice:'))
+        print(
+            "Pick a number for your choice: [1] Bumblebee, [2] Grapefruit, [3] Porcupine"
+        )
+        red_choice = ["1", "2", "3"].index(input("Red Player - Make your choice:"))
         if red_choice == -1:
-            print('Sorry that is not a valid choice, please pick 1, 2, or 3\n')
+            print("Sorry that is not a valid choice, please pick 1, 2, or 3\n")
         else:
-            print('Red Player picked - {}'.format(keywords[red_choice].title()))
+            print("Red Player picked - {}".format(keywords[red_choice].title()))
             break
 
-    print('\nBlue Player - Say your choice:')
+    print("\nBlue Player - Say your choice:")
     color(led=1, color=blue)
 
     # define callback for action to take when wake words are detected
@@ -31,7 +33,7 @@ def play(keywords=['bumblebee', 'grapefruit', 'porcupine'], sensitivity=0.5):
             pcm = struct.unpack_from("h" * porcupine.frame_length, in_data)
             blue_choice = porcupine.process(pcm)
             if blue_choice >= 0:
-                print('Blue Player picked - {}'.format(keywords[blue_choice].title()))
+                print("Blue Player picked - {}".format(keywords[blue_choice].title()))
                 if blue_choice == red_choice:
                     print("It's a TIE!")
                     color(color=purple)
@@ -64,7 +66,8 @@ def play(keywords=['bumblebee', 'grapefruit', 'porcupine'], sensitivity=0.5):
             input=True,
             frames_per_buffer=porcupine.frame_length,
             input_device_index=None,
-            stream_callback=_audio_callback)
+            stream_callback=_audio_callback,
+        )
 
         # start monitoring stream
         audio_stream.start_stream()
@@ -73,7 +76,7 @@ def play(keywords=['bumblebee', 'grapefruit', 'porcupine'], sensitivity=0.5):
             time.sleep(0.1)
 
     except KeyboardInterrupt:
-        print('\nPlay Again!')
+        print("\nPlay Again!")
 
     finally:
         if audio_stream is not None:
