@@ -1,4 +1,4 @@
 gpiozero==1.5.1
 jupyter==1.0.0
 picamera==1.13
-tensorflow==1.14.0
+tensorflow==1.15.2
