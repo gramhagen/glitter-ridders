@@ -1,5 +1,5 @@
 import ipywidgets as widgets
-from traitlets import Unicode
+from traitlets import Unicode, Float, Bool
 import RPi.GPIO as GPIO
 import time
 import threading
