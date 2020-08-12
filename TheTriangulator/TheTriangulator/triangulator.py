@@ -94,13 +94,13 @@ class TriangulatorWorld(widgets.DOMWidget):
         while self.running:
             # cap at board_length, normalize and scale to size
             try:
-                self.distance0 = distance(self.trigger_0, self.echo_0)
-                self.distance1 = distance(self.trigger_1, self.echo_1)
+                self.distance0 = TriangulatorWorld.distance(self.trigger_0, self.echo_0)
+                self.distance1 = TriangulatorWorld.distance(self.trigger_1, self.echo_1)
             except:
                 pass
             
             time.sleep(self.poll_time)
 
     def start(self):
-        thread = threading.Thread(target=poll, args=(self,))
+        thread = threading.Thread(target=self.poll) #, args=(self,))
         thread.start()
