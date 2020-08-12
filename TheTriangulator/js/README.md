@@ -7,5 +7,5 @@ Package Install
 - [node](http://nodejs.org/)
 
 ```bash
-npm install --save TheTriangulator
+npm install --save thetriangulator
 ```

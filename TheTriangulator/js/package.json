@@ -1,5 +1,5 @@
 {
-  "name": "TheTriangulator",
+  "name": "thetriangulator",
   "version": "0.1.0",
   "description": "A triangulation widget for ultrasonic HC-SR04 sensors",
   "author": "Markus Cozowicz",
