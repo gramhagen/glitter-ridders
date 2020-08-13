@@ -3,6 +3,7 @@
 dist/
 build/
 *.py[cod]
+__pycache__/
 node_modules/
 
 # Compiled javascript
