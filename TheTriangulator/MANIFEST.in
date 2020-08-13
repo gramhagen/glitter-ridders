@@ -1,0 +1,2 @@
+recursive-include TheTriangulator/static *.*
+include TheTriangulator.json
